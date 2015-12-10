@@ -26,15 +26,15 @@
         "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
       }
     },
-    "location":{
+    "location": {
       "type": "string",
-      "defaultvalue": "west US",
-      "allowedvalues": [
+      "defaultValue": "West US",
+      "allowedValues": [
         "West US",
         "East US 2"
       ],
       "metadata": {
-        "description": "Restricts choices to where premium storage is located in the US"
+        "description": "Restrict choices"
       }
     },
     "windowsOSVersion": {
@@ -49,10 +49,10 @@
         "description": "The Windows version for the VM. This will pick a fully patched image of this given Windows version. Allowed values: 2008-R2-SP1, 2012-Datacenter, 2012-R2-Datacenter."
       }
     },
-    "sizeofeachdatadiskinGB":{
+    "sizeOfDiskInGB": {
       "type": "string",
-      "metadata":{
-        "description": "size of each data disk in GB"
+      "metadata": {
+        "description": "Size of the empty data disk in GB"
       }
     }
   },
@@ -73,7 +73,7 @@
     "virtualNetworkName": "MyVNET",
     "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
     "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]",
-    "dataDisk1VhdName": "[concat('http://',parameters('newstorageaccountname'),'.blob.core.windows.net/',variables('vmstorageaccountcontainername'),'/',variables('vmname'),'datadisk1.vhd')]"
+    "dataDisk1VhdName": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('vmName'),'dataDisk1.vhd')]"
   },
   "resources": [
     {
@@ -177,15 +177,15 @@
             "caching": "ReadWrite",
             "createOption": "FromImage"
           },
-          "datadisk":[
+          "dataDisks": [
             {
               "name": "datadisk1",
-              "disksizeGB": "[parameters('sizeofdiskingb')]",
+              "diskSizeGB": "[parameters('sizeOfDiskInGB')]",
               "lun": 0,
               "vhd": {
-                "uri": "[variables('datadisk1vhdname')]"
+                "Uri": "[variables('dataDisk1VhdName')]"
               },
-              "createoption": "empty"
+              "createOption": "Empty"
             }
           ]
         },
