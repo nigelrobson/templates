@@ -3,22 +3,22 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "newStorageAccountName": {
-      "value": "nstore1"
+      "value": "dmgstore1"
     },
     "adminUsername": {
       "value": "admin123"
     },
     "adminPassword": {
-      "value": "ADmin123_!"
+      "value": "Passw0rd!"
     },
     "dnsNameForPublicIP": {
-      "value": "NR643783344323"
+      "value": "dmg66851211111"
     },
     "location": {
       "value": "West US"
     },
-    "sizeofdiskinGB" : {
-      "value" :"20"
+    "sizeOfDiskInGB": {
+      "value": "20"
     }
   }
 }
